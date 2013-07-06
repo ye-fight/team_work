@@ -54,10 +54,10 @@ return array(
 		*/
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=soft',
+			'connectionString' => 'mysql:host=phpsql.wengdo.com;dbname=wd10010',
 			'emulatePrepare' => true,
-			'username' => 'root',
-			'password' => '',
+			'username' => 'wd10010',
+			'password' => 'pass123456',
 			'charset' => 'utf8',
 		),
 		'errorHandler'=>array(
