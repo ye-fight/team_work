@@ -12,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h2 class="page-header">物品交易aaa</h2>
+<h2 class="page-header">物品交易</h2>
 
 <?php
 	$len = sizeof($result);
