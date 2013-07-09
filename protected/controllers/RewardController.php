@@ -50,17 +50,19 @@ class RewardController extends Controller
 	 */
 	public function actionView($id)
 	{
-		$dataProvider= Reaction::model()->findAll('reward_id=:reward_id',
+		$dataProvider= Reaction::model()->with('author')->findAll('reward_id=:reward_id',
 											array(':reward_id' => $id),
 											array('order' => 'create_time desc')
 											);
 		foreach ($dataProvider as $key => $value) {
 			$result[] = $value->attributes;
+			$name[] = $value->author->attributes;
 		}
 		$this->layout='//layouts/main_post';
 		$this->render('view',array(
 			'model'=>$this->loadModel($id)->attributes,
 			'reaction'=>$result,
+			'name'=>$name
 		));
 	}
 

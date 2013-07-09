@@ -56,7 +56,8 @@ class User extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'reaction'=>array(self::HAS_MANY, 'Reaction', 'user_id')
+			'reaction'=>array(self::HAS_MANY, 'Reaction', 'user_id'),
+			'reward'=>array(self::HAS_MANY, 'reward', 'user_id'),
 		);
 	}
 

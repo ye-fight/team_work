@@ -50,11 +50,13 @@ $this->breadcrumbs=array(
                 printf("
                     <div class='span3'>
                     %s
-                    <span>发布日期：%s</span>
+                    <span>发布日期：%s</span><br>
+                    <span>发布人:%s</span>
                     %s
                     </div>
                 ", $reaction[$j]['reaction_info'],
                 date('Y-m-d', $reaction[$j]['create_time']),
+                $name[$j]['user_name'],
                 $reaction[$j]['flag'] ? '<h5 class="text-success">完成任务！</h5>' : '');
                 if(($j + 1) % 4 == 0) {
                     $j++;

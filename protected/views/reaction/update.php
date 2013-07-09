@@ -15,7 +15,28 @@ $this->menu=array(
 	array('label'=>'Manage Reaction', 'url'=>array('admin')),
 );
 ?>
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'reaction-form',
+	'enableAjaxValidation'=>false,
+)); ?>
 
-<h1>Update Reaction <?php echo $model->reward_reaction_id; ?></h1>
+          <form class="postForm">
+            <fieldset>
+              <legend>参与悬赏</legend>
+       			<h4>带*部分必填</h4>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+
+		 		<?php echo $form->labelEx($model,'reaction_info'); ?>
+				<?php echo $form->textArea($model,'reaction_info',array('rows'=>6, 'cols'=>50, 'class'=>'ckeditor', 'id'=>'editor1')); ?>
+				<?php echo $form->error($model,'reaction_info'); ?>
+
+				<label>状态</label>
+				<span class="uneditable-input"><?php echo $model['flag'] ? '已中标': '未中标'; ?></span>	
+              <div class="bgWhite form-actions">
+                <button type="submit" class="btn btn-primary">发布</button>
+                <button type="button" class="btn">取消</button>
+              </div>
+            </fieldset>
+          </form>
+
+<?php $this->endWidget(); ?>

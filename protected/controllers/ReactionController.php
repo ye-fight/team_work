@@ -98,9 +98,10 @@ class ReactionController extends Controller
 		{
 			$model->attributes=$_POST['Reaction'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->reward_reaction_id));
+				$this->redirect(array('/reward/view','id'=>$model->reward_id));
 		}
 
+		$this->layout='//layouts/column2_post';
 		$this->render('update',array(
 			'model'=>$model,
 		));
