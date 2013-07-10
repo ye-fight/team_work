@@ -82,6 +82,24 @@ class SiteController extends Controller
 		$this->render('login',array('model'=>$model));
 	}
 
+	public function actionSubmit()
+	{
+		$model = new User;
+
+		if(isset($_POST['User'])) {
+			if($_POST['User']['password'] == $_POST['password2']) {
+				$_POST['User']['rank'] = 1;
+				$_POST['User']['score'] = 0;				
+				$_POST['User']['password'] = md5($_POST['User']['password']);
+				$model->attributes=$_POST['User'];
+				if ($model->save()) {
+					$this->redirect(array('site/index'));
+				}
+			}
+		}
+		var_dump($_POST);
+		$this->render('submit', array('model'=>$model));
+	}
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
@@ -96,4 +114,5 @@ class SiteController extends Controller
 		$this->layout='//layouts/column2';
 		$this->render('user');
 	}
+
 }
