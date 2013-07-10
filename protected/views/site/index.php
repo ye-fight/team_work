@@ -31,6 +31,7 @@
               <li>林友鹏</li>
               <li>周炳佳</li>
             </ul>
+            <a class="btn" href="<?php echo Yii::app()->createUrl('site/about');?>">查看 &raquo;</a>
           </p>
         </div>
       </div>
